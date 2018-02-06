@@ -1,22 +1,21 @@
 /* Color Palette */
 
 $white: #fff;
-$off-white: #f7f7f7;
 $black: #000;
 
 
 // Neutrals
-$off-white: #eeeeef;
+$off-white: #fff8e3;
 $transparent-white: fade(#fff, 70%);
 
 // Brand Palette
 $brand-primary: #fbb03b;
 $brand-orange: #F27405; 
-$brand-gray: #525F63;
+$brand-gray: #616365;
 
 
 // Grays
-$silver-gray: #CDCFD0;
+$silver-gray: rgba($brand-gray, 0.4);
 $dusty-gray: #8F9194;
 $shuttle-gray: #616365;
 $deep-gray: #404041;
