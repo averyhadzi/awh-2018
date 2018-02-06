@@ -1,0 +1,55 @@
+// Typography
+
+h1 {
+  font-family: $font-cursive;
+  font-size: 3rem;
+  font-weight: $normal;
+  color: $header-color;
+  margin: 0;
+  padding-bottom: 0.5em;
+}
+
+h2 {
+  font-family: $font-cursive;
+  font-size: 2rem;
+  font-weight: $light;
+  color: $subheader-color;
+  margin: 0;
+  padding-bottom: 0.5em;
+}
+
+h3 {
+  font-family: $font-normal;
+  font-weight: $bold;
+  font-size: 1.5rem;
+}
+
+p {
+  font-weight: $light;
+  padding: 1em 0 0 0;
+}
+
+a {
+  position: relative;
+  color: $brand-orange;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: $brand-orange;
+    transition: all .2s;
+  }
+  &:hover, &:active, &:focus {
+    outline: none;
+    text-decoration: none;
+    color: $brand-orange;
+
+    &:after {
+      width: 100%;
+    }
+  }
+}

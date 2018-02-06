@@ -1,0 +1,73 @@
+/* General Helpers and Mixins */
+// Baseline mixin for spacing
+
+@function baseline($multiplier: 1) {
+  @return $baselineUnit * $multiplier;
+}
+
+
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+.block { display: block; }
+.border-right { border-right: 1px solid $border-color; }
+.border-top { 
+  border-top: 1px solid rgba($border-color, 0.3); 
+  padding-top: baseline(4); 
+  margin-top: baseline(4); 
+}
+.border-bottom { border-bottom: 1px solid rgba($border-color, 0.3); }
+.border-bottom--dashed { border-bottom: 2px dashed $border-color; padding-bottom: 2rem; }
+.no-border { border: none !important; }
+.italic { font-style: $italic; }
+
+.text-right, .text-left {
+  @media screen and (max-width: $tablet) {
+    text-align: center;
+  }
+}
+
+
+@mixin cover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@mixin transition($prop: all, $time: .1s, $ease: linear) {
+    -webkit-transition: $prop $time $ease;
+    -moz-transition: $prop $time $ease;
+    -o-transition: $prop $time $ease;
+    -ms-transition: $prop $time $ease;
+    transition: $prop $time $ease;
+}
+
+@mixin gradient($startColor: #eee, $endColor: $white) {
+  background-color: $startColor;
+  background: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+  background: -webkit-linear-gradient(top, $startColor, $endColor);
+  background: -moz-linear-gradient(top, $startColor, $endColor);
+  background: -ms-linear-gradient(top, $startColor, $endColor);
+  background: -o-linear-gradient(top, $startColor, $endColor);
+}
+
+@mixin gradient-bg($origin: bottom, $fallback: transparent, $stops: 0){
+    background-color: $fallback;
+    background: -webkit-linear-gradient($origin, $stops) $fallback no-repeat;
+    background:    -moz-linear-gradient($origin, $stops) $fallback no-repeat;
+    background:    -ms-linear-gradient($origin, $stops) $fallback no-repeat;
+    background:      -o-linear-gradient($origin, $stops) $fallback no-repeat;
+    background:         linear-gradient($origin, $stops) $fallback no-repeat;
+}
+
+
+@mixin gradient-radial($from, $to){
+  background: -moz-radial-gradient(center, ellipse cover,  $from 0%, $to 100%);
+  background: -webkit-radial-gradient(center, ellipse cover,  $from 0%,$to 100%);
+  background: radial-gradient(ellipse at center,  $from 0%,$to 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0072ce', endColorstr='#cc0072ce',GradientType=1 );
+}
+
+

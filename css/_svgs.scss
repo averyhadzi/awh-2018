@@ -1,0 +1,16 @@
+// Inline SVG styles and animations
+
+#network {
+  #circles {
+    #top_left_circle {
+      transform-origin: -60% bottom;
+    }
+    #top_right_circle {
+      transform-origin: 0 bottom;
+    }
+    #left_circle {
+      transform-origin: 40% 0;
+    }
+  }
+}
+

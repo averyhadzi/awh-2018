@@ -1,0 +1,21 @@
+/* General Styles */
+@-ms-viewport       { width: device-width; }
+@-o-viewport        { width: device-width; }
+@viewport           { width: device-width; }
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 18px; // 1rem
+  color: $off-white;
+}
+
+body {
+  background-color: $off-white;
+  background: $wood-dark;
+  background-repeat: repeat;
+  font-family: $font-normal;
+  font-weight: $light;
+  overflow-x: hidden;
+}

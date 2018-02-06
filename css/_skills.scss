@@ -1,0 +1,45 @@
+// Skills
+
+.skills {
+  &__list {
+    margin: 2rem auto;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.progress {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 2rem;
+  background-color: $brand-orange;
+  box-shadow: none;
+  border: 1px solid rgba($off-white, 0.5);
+
+
+  &__type {
+    position: absolute;
+    left: 1rem;
+    top: 0.25em;
+    font-size: 1rem;
+    color: $off-white;
+  }
+
+  &__completed {
+    position: absolute;
+    right: 0.25em;
+    top: 0.25em;
+    font-size: 1rem;
+    font-weight: $bold;
+    color: $off-white;
+  }
+
+  &__bar {
+    background-color: $brand-primary;
+    width: 20%;
+    margin: 0.1rem;
+    border-radius: 4px;
+    opacity: 0.4;
+  }
+}

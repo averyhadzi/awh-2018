@@ -1,0 +1,50 @@
+// Buttons
+
+.btn {
+  display: inline-block;
+  width: auto;
+  padding: 0.5em 1em;
+  outline: none;
+  transition: all .2s;
+
+  &:after {
+    display: none;
+  }
+
+  &__container {
+    margin: 1rem auto;
+  }
+
+  &--primary {
+    font-family: $font-normal;
+    font-weight: $light;
+    font-size: 1rem;
+    background-color: transparent;
+    color: $off-white;
+    border: 1px solid $off-white;
+    border-radius: $border-radius;
+
+    &:hover {
+      background-color: $brand-orange;
+      color: $white;
+      border-color: $brand-orange;
+    }
+  }
+
+  &--secondary {
+    font-family: $font-normal;
+    font-weight: $light;
+    font-size: 1rem;
+    background-color: transparent;
+    color: $brand-orange;
+    border: 1px solid $brand-orange;
+    border-radius: $border-radius;
+
+    &:hover {
+      background-color: $brand-orange;
+      color: $white;
+      border-color: $brand-orange;
+    }
+  }
+
+}

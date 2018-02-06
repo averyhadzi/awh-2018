@@ -1,0 +1,28 @@
+.section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+
+    &--skills {
+        background-color: $brand-orange;
+    }
+
+    &--portfolio {
+        background-color: $off-white;
+        display: block;
+        padding: 5rem 0;
+        
+        h1, h2, h3, p {
+            color: $shuttle-gray;
+        }
+    }
+
+    &--resume {
+        background-color: $dusty-gray;
+    }
+}
+
+.row--flex {
+    display: flex;
+    align-items: center;
+}

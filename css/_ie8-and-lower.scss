@@ -1,0 +1,16 @@
+/* PDF fallback for IE8 and below */
+
+body.deprecated {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  #web-content {
+    display: none;
+  }
+  #pdf-content {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+}
