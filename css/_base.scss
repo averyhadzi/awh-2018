@@ -9,6 +9,10 @@ html, body {
   padding: 0;
   font-size: 18px; // 1rem
   color: $off-white;
+
+  @media (max-width: $screen-sm) {
+    font-size: 16px;
+  }
 }
 
 body {

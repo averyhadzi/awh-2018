@@ -11,8 +11,12 @@
   padding-top: 2rem;
   // box-shadow: inset -2px 0 3px rgba($black, 0.3);
 
-  transform: translateX(-100%);
+  transform: translateX(-105%);
   transition: transform .2s;
+
+  @media (max-width: $screen-sm) {
+    width: 25%;
+  }
 
   &__trigger {
     color: $white;
@@ -26,6 +30,12 @@
     &.open {
       left: 25%;
       color: $brand-orange;
+    }
+    @media (max-width: $screen-sm) {
+      transform: rotate(90deg);
+      &.open {
+        left: 30%;
+      }
     }
   }
 
@@ -63,8 +73,12 @@
 .body {
   transition: transform .2s;
   &.open {
-    transform: translateX(20%);
+    transform: translateX(25%);
     box-shadow: -2px 0 5px rgba($black, 0.3);
     transition: transform .2s;
+
+    @media (max-width: $screen-sm) {
+      transform: translateX(35%);
+    }
   }
 }

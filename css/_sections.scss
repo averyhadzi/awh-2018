@@ -11,7 +11,7 @@
         background-color: $off-white;
         display: block;
         padding: 5rem 0;
-        
+
         h1, h2, h3, p {
             color: $shuttle-gray;
         }
@@ -20,9 +20,17 @@
     &--resume {
         background-color: $dusty-gray;
     }
+
+    @media (max-width: $screen-sm) {
+        padding: 4rem 0;
+    }    
 }
 
 .row--flex {
     display: flex;
     align-items: center;
+
+    @media (max-width: $screen-sm) {
+        display: block;
+    }
 }
