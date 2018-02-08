@@ -1,15 +1,30 @@
 // Portfolio
 
+#portfolio {
+  position: relative !important; 
+}
+
 .portfolio {
 
   h2 {
     font-family: $font-normal;
   }
 
+  &__container {
+    // width: 900vw;
+    // display: flex;
+  }
+
+  &__header {
+    margin-bottom: 4rem;
+  }
+
   &__row {
     border-bottom: 1px solid $silver-gray;
     padding-bottom: 1em;
     padding-top: 1em;
+    transform-style: preserve-3d;
+
 
     &:last-child {
       border-bottom: none;

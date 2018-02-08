@@ -3,11 +3,15 @@
     display: flex;
     align-items: center;
 
-    &--skills {
+    &--wood {
+       background: $wood-dark; 
+    }
+
+    &--orange {
         background-color: $brand-orange;
     }
 
-    &--portfolio {
+    &--light {
         background-color: $off-white;
         display: block;
         padding: 5rem 0;
@@ -17,7 +21,7 @@
         }
     }
 
-    &--resume {
+    &--dark {
         background-color: $dusty-gray;
     }
 
