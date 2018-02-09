@@ -1,26 +1,38 @@
 // Portfolio
 
 #portfolio {
-  position: relative !important; 
+  // position: relative !important; 
 }
 
 .portfolio {
+  overflow: hidden;
+  perspective: 1000;
 
   h2 {
     font-family: $font-normal;
   }
 
   &__container {
-    // width: 900vw;
+    width: 500%;
+    position: relative;
     // display: flex;
   }
 
   &__header {
     margin-bottom: 4rem;
+    // width: 100vw;
   }
 
   &__row {
-    border-bottom: 1px solid $silver-gray;
+
+    height: 50vh;
+    width: 20%; /* relative to parent -> 25% of 400% = 100% of window width */
+    float: left;
+    padding: 0 10vw;
+    margin: 0;
+
+
+    // border-bottom: 1px solid $silver-gray;
     padding-bottom: 1em;
     padding-top: 1em;
     transform-style: preserve-3d;
@@ -28,6 +40,15 @@
 
     &:last-child {
       border-bottom: none;
+    }
+
+    @media (max-width: $screen-sm) {
+      height: auto;
+      padding: 0 15px;
+      float: none;
+      margin: 4rem auto;
+      margin-right: -15px;
+      margin-left: -15px;
     }
   }
 

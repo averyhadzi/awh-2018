@@ -94,7 +94,8 @@ $(document).ready(function(){
 
     // section wipes
 
-    $('.section').each(function(i) {
+    $('.section:not(#portfolio)').each(function(i) {
+
       new ScrollMagic.Scene({
         triggerElement: this,
         triggerHook: 'onLeave'
@@ -104,40 +105,87 @@ $(document).ready(function(){
     });
 
 
-    $('.portfolio__row').each(function(i){
-      var currentItem = $(this);
-      var currentContent = $(this).find('.portfolio__content');
-      var currentBtn = $(this).find('.btn');
-      var currentImg = $(this).find('.portfolio__thumb');
-      var currentBrand = $(currentImg).find('.portfolio__thumb__brand');
+    // Skills animations
+    var progressTween = new TimelineMax()
+        .staggerFrom('.progress__bar', 0.5, {opacity: 0, width: 0}, 0.1);
 
-      console.log(currentBtn)
+    new ScrollMagic.Scene({
+      triggerElement: '#skills',
+      triggerHook: 0.5,
+      duration: 0,
+      reverse: true
+    })
+    .setTween(progressTween)
+    .addTo(controller);
 
-      var portfolioTween = new TimelineMax()
-        .fromTo(currentImg, 0.5, {opacity: 0, scaleX: 0, scaleY: 0}, {opacity: 1, scaleX: 1, scaleY: 1})
-        // .fromTo(currentContent, 1, {opacity: 0, x: '80%'}, {opacity: 1, x: '0%'})
-        .fromTo(currentBrand, 1, {opacity: 0}, {opacity: 1});
-        // .fromTo(currentBtn, 1, {opacity: 0}, {opacity: 1});
+    // Portfolio animations
 
-        console.log(portfolioTween)
+    // $('.portfolio__row').each(function(i){
+    //   var currentItem = $(this);
+    //   var currentContent = $(this).find('.portfolio__content');
+    //   var currentBtn = $(this).find('.btn');
+    //   var currentImg = $(this).find('.portfolio__thumb');
+    //   var currentBrand = $(currentImg).find('.portfolio__thumb__brand');
 
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        triggerHook: 0.5,
-        duration: 0,
-        reverse: true
-      })
-      .setTween(portfolioTween)
-      .addTo(controller);
-    });
-    
-    
+    //   var portfolioTween = new TimelineMax()
+    //     .fromTo(currentImg, 0.5, {opacity: 0, scaleX: 0, scaleY: 0}, {opacity: 1, scaleX: 1, scaleY: 1})
+    //     // .fromTo(currentContent, 1, {opacity: 0, x: '80%'}, {opacity: 1, x: '0%'})
+    //     .fromTo(currentBrand, 1, {opacity: 0}, {opacity: 1});
+    //     // .fromTo(currentBtn, 1, {opacity: 0}, {opacity: 1});
+
+    //   new ScrollMagic.Scene({
+    //     triggerElement: this,
+    //     triggerHook: 0.5,
+    //     duration: 0,
+    //     reverse: true
+    //   })
+    //   .setTween(portfolioTween)
+    //   .addTo(controller);
+    // });
       
 
   }
 
-  initAnimations();
 
+  function initWipeAnimation() {
+     // define movement of panels
+    var wipeAnimation = new TimelineMax()
+      // animate to second panel
+      .to(".portfolio__container", 0.5, {z: -150})    // move back in 3D space
+      .to(".portfolio__container", 1,   {x: '-20%'})  // move in to first panel
+      .to(".portfolio__container", 0.5, {z: 0})       // move back to origin in 3D space
+      // animate to third panel
+      .to(".portfolio__container", 0.5, {z: -150, delay: 1})
+      .to(".portfolio__container", 1,   {x: '-40%'})
+      .to(".portfolio__container", 0.5, {z: 0})
+      // animate to fourth panel
+      .to(".portfolio__container", 0.5, {z: -150, delay: 1})
+      .to(".portfolio__container", 1,   {x: '-60%'})
+      .to(".portfolio__container", 0.5, {z: 0})
+      // animate to fifth panel
+      .to(".portfolio__container", 0.5, {z: -150, delay: 1})
+      .to(".portfolio__container", 1,   {x: '-80%'})
+      .to(".portfolio__container", 0.5, {z: 0});
+
+    // create scene to pin and link animation
+    new ScrollMagic.Scene({
+        triggerElement: "#portfolio",
+        triggerHook: "onLeave",
+        duration: "500%"
+      })
+      .setPin("#portfolio")
+      .setTween(wipeAnimation)
+      .addTo(controller);
+  }
+
+  //767 is my mobile breakpoint
+  var width = $(window).width();
+
+  if( width > 767) {
+    initWipeAnimation();
+  }
+
+  initAnimations();
  
 
 
