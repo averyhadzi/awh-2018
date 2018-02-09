@@ -1,5 +1,11 @@
 // Skills
 
+#skills {
+  @media (max-width: $screen-sm) {
+    position: relative !important;
+  }
+}
+
 .skills {
   padding-top: 4rem;
   &__list {
