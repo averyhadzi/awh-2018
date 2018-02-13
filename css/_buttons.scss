@@ -11,6 +11,12 @@
     display: none;
   }
 
+  &:hover, &:active, &:focus {
+    outline: none;
+    text-decoration: none;
+    color: $brand-orange;
+  }
+
   &__container {
     margin: 1rem auto;
   }
@@ -24,7 +30,7 @@
     border: 1px solid $off-white;
     border-radius: $border-radius;
 
-    &:hover {
+    &:hover, &:active, &:focus {
       background-color: $brand-orange;
       color: $white;
       border-color: $brand-orange;
@@ -40,7 +46,7 @@
     border: 1px solid $brand-orange;
     border-radius: $border-radius;
 
-    &:hover {
+    &:hover, &:active, &:focus {
       background-color: $brand-orange;
       color: $white;
       border-color: $brand-orange;

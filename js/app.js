@@ -100,7 +100,7 @@ $(document).ready(function(){
         triggerElement: this,
         triggerHook: 'onLeave'
       })
-      .setPin(this)
+      .setPin(this, {pushFollowers: false})
       .addTo(controller);
     });
 
@@ -111,7 +111,7 @@ $(document).ready(function(){
 
     new ScrollMagic.Scene({
       triggerElement: '#skills',
-      triggerHook: 0.5,
+      triggerHook: 0.3,
       duration: 0,
       reverse: true
     })
@@ -120,28 +120,30 @@ $(document).ready(function(){
 
     // Portfolio animations
 
-    // $('.portfolio__row').each(function(i){
-    //   var currentItem = $(this);
-    //   var currentContent = $(this).find('.portfolio__content');
-    //   var currentBtn = $(this).find('.btn');
-    //   var currentImg = $(this).find('.portfolio__thumb');
-    //   var currentBrand = $(currentImg).find('.portfolio__thumb__brand');
+    $('.portfolio__row').each(function(i){
+      var currentItem = $(this),
+          currentBorder = $(this).next('.portfolio__border'),
+          currentContent = $(this).find('.portfolio__content'),
+          currentBtn = $(this).find('.btn'),
+          currentImg = $(this).find('.portfolio__thumb'),
+          currentBrand = $(currentImg).find('.portfolio__thumb__brand');
 
-    //   var portfolioTween = new TimelineMax()
-    //     .fromTo(currentImg, 0.5, {opacity: 0, scaleX: 0, scaleY: 0}, {opacity: 1, scaleX: 1, scaleY: 1})
-    //     // .fromTo(currentContent, 1, {opacity: 0, x: '80%'}, {opacity: 1, x: '0%'})
-    //     .fromTo(currentBrand, 1, {opacity: 0}, {opacity: 1});
-    //     // .fromTo(currentBtn, 1, {opacity: 0}, {opacity: 1});
+      var portfolioTween = new TimelineMax()
+        .fromTo(currentItem, 0.5, {opacity: 0}, {opacity: 1})
+        .fromTo(currentBorder, 1, {opacity: 0.3, width: 0}, {opacity: 1, width: '100%'});
+        // .fromTo(currentImg, 0.5, {opacity: 0, scaleX: 0, scaleY: 0}, {opacity: 1, scaleX: 1, scaleY: 1})
+        // .fromTo(currentContent, 1, {opacity: 0}, {opacity: 1})
+        // .fromTo(currentBrand, 1, {opacity: 0}, {opacity: 1});
+        // .fromTo(currentBtn, 1, {opacity: 0}, {opacity: 1});
 
-    //   new ScrollMagic.Scene({
-    //     triggerElement: this,
-    //     triggerHook: 0.5,
-    //     duration: 0,
-    //     reverse: true
-    //   })
-    //   .setTween(portfolioTween)
-    //   .addTo(controller);
-    // });
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        triggerHook: 0.5,
+        reverse: true
+      })
+      .setTween(portfolioTween)
+      .addTo(controller);
+    });
       
 
   }
@@ -182,10 +184,11 @@ $(document).ready(function(){
   var width = $(window).width();
 
   if( width > 767) {
-    initWipeAnimation();
+    // initWipeAnimation();
   }
 
-  initAnimations();
+  $(window).resize(initAnimations());
+  // initAnimations();
  
 
 
