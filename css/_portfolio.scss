@@ -7,6 +7,8 @@
 .portfolio {
   overflow: hidden;
   perspective: 1000;
+  padding-bottom: 50vh;
+  margin-bottom: -25vh;
 
   h2 {
     font-family: $font-normal;
@@ -19,7 +21,8 @@
   }
 
   &__header {
-    margin-bottom: 4rem;
+    // margin-bottom: 4rem;
+    padding: 2rem 2rem 2rem 0;
     // width: 100vw;
   }
 

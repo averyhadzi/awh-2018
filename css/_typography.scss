@@ -7,6 +7,7 @@ h1 {
   color: $header-color;
   margin: 0;
   padding-bottom: 0.5em;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 h2 {
@@ -53,3 +54,21 @@ a {
     }
   }
 }
+
+
+// .css-typing
+// {
+//     width: 30em;
+//     white-space:nowrap;
+//     overflow:hidden;
+//     -webkit-animation: type 5s steps(50, end);
+//     animation: type 5s steps(50, end);
+// }
+
+// @keyframes type{
+//     from { width: 0; }
+// }
+
+// @-webkit-keyframes type{
+//     from { width: 0; }
+// }

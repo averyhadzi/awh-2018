@@ -60,7 +60,7 @@ $(document).ready(function(){
 
   // init
   var controller = new ScrollMagic.Controller();
-  var controller_h = new ScrollMagic.Controller({vertical: false});
+  // var controller_h = new ScrollMagic.Controller({vertical: false});
   // var navHeight = $('.nav__wrapper').innerHeight();
 
 
@@ -96,7 +96,7 @@ $(document).ready(function(){
 
     $('.section:not(#portfolio)').each(function(i) {
 
-      new ScrollMagic.Scene({
+      var sectionScene = new ScrollMagic.Scene({
         triggerElement: this,
         triggerHook: 'onLeave'
       })
@@ -144,41 +144,54 @@ $(document).ready(function(){
       .setTween(portfolioTween)
       .addTo(controller);
     });
+
+
+    var portfolioSectionTween = new TimelineMax()
+      .to($('#portfolio'), 1, {opacity: 0});
+
+    var portfolioSectionScene = new ScrollMagic.Scene({
+      triggerElement: '#resume',
+      triggerHook: 0,
+      duration: 1,
+      reverse: true
+    })
+    .setTween(portfolioSectionTween)
+    .addTo(controller);
       
 
   }
 
 
-  function initWipeAnimation() {
-     // define movement of panels
-    var wipeAnimation = new TimelineMax()
-      // animate to second panel
-      .to(".portfolio__container", 0.5, {z: -150})    // move back in 3D space
-      .to(".portfolio__container", 1,   {x: '-20%'})  // move in to first panel
-      .to(".portfolio__container", 0.5, {z: 0})       // move back to origin in 3D space
-      // animate to third panel
-      .to(".portfolio__container", 0.5, {z: -150, delay: 1})
-      .to(".portfolio__container", 1,   {x: '-40%'})
-      .to(".portfolio__container", 0.5, {z: 0})
-      // animate to fourth panel
-      .to(".portfolio__container", 0.5, {z: -150, delay: 1})
-      .to(".portfolio__container", 1,   {x: '-60%'})
-      .to(".portfolio__container", 0.5, {z: 0})
-      // animate to fifth panel
-      .to(".portfolio__container", 0.5, {z: -150, delay: 1})
-      .to(".portfolio__container", 1,   {x: '-80%'})
-      .to(".portfolio__container", 0.5, {z: 0});
+  // function initWipeAnimation() {
+  //    // define movement of panels
+  //   var wipeAnimation = new TimelineMax()
+  //     // animate to second panel
+  //     .to(".portfolio__container", 0.5, {z: -150})    // move back in 3D space
+  //     .to(".portfolio__container", 1,   {x: '-20%'})  // move in to first panel
+  //     .to(".portfolio__container", 0.5, {z: 0})       // move back to origin in 3D space
+  //     // animate to third panel
+  //     .to(".portfolio__container", 0.5, {z: -150, delay: 1})
+  //     .to(".portfolio__container", 1,   {x: '-40%'})
+  //     .to(".portfolio__container", 0.5, {z: 0})
+  //     // animate to fourth panel
+  //     .to(".portfolio__container", 0.5, {z: -150, delay: 1})
+  //     .to(".portfolio__container", 1,   {x: '-60%'})
+  //     .to(".portfolio__container", 0.5, {z: 0})
+  //     // animate to fifth panel
+  //     .to(".portfolio__container", 0.5, {z: -150, delay: 1})
+  //     .to(".portfolio__container", 1,   {x: '-80%'})
+  //     .to(".portfolio__container", 0.5, {z: 0});
 
-    // create scene to pin and link animation
-    new ScrollMagic.Scene({
-        triggerElement: "#portfolio",
-        triggerHook: "onLeave",
-        duration: "500%"
-      })
-      .setPin("#portfolio")
-      .setTween(wipeAnimation)
-      .addTo(controller);
-  }
+  //   // create scene to pin and link animation
+  //   new ScrollMagic.Scene({
+  //       triggerElement: "#portfolio",
+  //       triggerHook: "onLeave",
+  //       duration: "500%"
+  //     })
+  //     .setPin("#portfolio")
+  //     .setTween(wipeAnimation)
+  //     .addTo(controller);
+  // }
 
   //767 is my mobile breakpoint
   var width = $(window).width();
@@ -187,8 +200,7 @@ $(document).ready(function(){
     // initWipeAnimation();
   }
 
-  $(window).resize(initAnimations());
-  // initAnimations();
+  initAnimations();
  
 
 
