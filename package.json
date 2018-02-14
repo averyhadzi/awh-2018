@@ -1,5 +1,5 @@
 {
-  "name": "fd-ci-2017",
+  "name": "awh-2018",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -8,7 +8,7 @@
     "dev": "npm run lint && webpack-dev-server --config webpack.dev.config.js --inline",
     "lint": "./node_modules/.bin/eslint js"
   },
-  "author": "Dfuzr Industries",
+  "author": "Avery Wolkin Hadzi",
   "license": "ISC",
   "devDependencies": {
     "animate.css": "git+https://github.com/daneden/animate.css.git",
