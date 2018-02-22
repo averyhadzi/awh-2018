@@ -24,6 +24,10 @@
     // margin-bottom: 4rem;
     padding: 2rem 2rem 2rem 0;
     // width: 100vw;
+
+    h1 {
+      text-shadow: none;
+    }
   }
 
   &__row {
@@ -93,10 +97,12 @@
         img {
           height: auto;
           width: auto;
+          top: auto;
+          transform: translate(-50%, 0);
         }
       }
 
-      @media (orientation: landscape) {
+      @media (max-width: $screen-sm) and (orientation: landscape) {
         img {
           width: 100%;
           top: auto;

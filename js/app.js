@@ -107,11 +107,11 @@ $(document).ready(function(){
 
     // Skills animations
     var progressTween = new TimelineMax()
-        .staggerFrom('.progress__bar', 0.5, {opacity: 0, width: 0}, 0.1);
+        .staggerFrom('.progress__bar', 1, {opacity: 0, width: 0}, 0.25);
 
     new ScrollMagic.Scene({
       triggerElement: '#skills',
-      triggerHook: 0.3,
+      triggerHook: 0,
       duration: 0,
       reverse: true
     })

@@ -1,20 +1,40 @@
 // Buttons
 
 .btn {
+  position: relative;
   display: inline-block;
   width: auto;
   padding: 0.5em 1em;
   outline: none;
-  transition: all .2s;
+  overflow: hidden;
+  transition: all 0.5s;
 
   &:after {
-    display: none;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+    transform: scale(0);
+    background-color: $brand-orange;
+    transition: all 0.5s;
+    z-index: -1;
   }
 
   &:hover, &:active, &:focus {
     outline: none;
     text-decoration: none;
     color: $brand-orange;
+
+    &:after {
+      transform: scale(50);
+      width: 10px;
+      height: 10px;
+    }
   }
 
   &__container {
@@ -31,7 +51,7 @@
     border-radius: $border-radius;
 
     &:hover, &:active, &:focus {
-      background-color: $brand-orange;
+      // background-color: $brand-orange;
       color: $white;
       border-color: $brand-orange;
     }
@@ -47,9 +67,10 @@
     border-radius: $border-radius;
 
     &:hover, &:active, &:focus {
-      background-color: $brand-orange;
+      // background-color: $brand-orange;
       color: $white;
       border-color: $brand-orange;
+
     }
   }
 
